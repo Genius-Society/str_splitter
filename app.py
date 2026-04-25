@@ -58,4 +58,4 @@ if __name__ == "__main__":
         ],
         flagging_mode="never",
         title=_L("字符串分割"),
-    ).launch(css="#gradio-share-link-button-0 { display: none; }")
+    ).launch(css="#gradio-share-link-button-0 { display: none; }", ssr_mode=False)
