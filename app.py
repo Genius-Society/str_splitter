@@ -3,7 +3,6 @@ import math
 import gradio as gr
 
 EN_US = os.getenv("LANG") != "zh_CN.UTF-8"
-
 ZH2EN = {
     "状态栏": "Status",
     "分割步长": "Split step",
@@ -39,8 +38,8 @@ def infer(txt: str, step: int):
     return status, output
 
 
-if __name__ == "__main__":
-    gr.Interface(
+def main():
+    return gr.Interface(
         fn=infer,
         inputs=[
             gr.TextArea(label=_L("待分割字符串")),
@@ -58,4 +57,8 @@ if __name__ == "__main__":
         ],
         flagging_mode="never",
         title=_L("字符串分割"),
-    ).launch(css="#gradio-share-link-button-0 { display: none; }", ssr_mode=False)
+    )
+
+
+if __name__ == "__main__":
+    main().launch(css="#gradio-share-link-button-0 { display: none; }", ssr_mode=False)
